@@ -1,0 +1,43 @@
+{
+	"presets": [
+		"es2015",
+		"react",
+		"stage-0"
+	],
+	"env": {
+		"production": {
+			"plugins": [
+				"transform-remove-console"
+			]
+		}
+	},
+	"plugins": [
+		"transform-decorators-legacy",
+		[
+			"module-resolver",
+			{
+				"root": [
+					"app/**",
+					"translation"
+				]
+			}
+		],
+		[
+			"react-css-modules",
+			{
+				"generateScopedName": "[local]___[hash:base64:5]",
+				"webpackHotModuleReloading": true,
+				"filetypes": {
+					".scss": "postcss-scss"
+				}
+			}
+		],
+		[
+			"react-intl",
+			{
+				"messagesDir": "./translation/defaultMessage",
+				"enforceDescriptions": false
+			}
+		]
+	]
+}

@@ -1,0 +1,58 @@
+.reply-message-item {
+	.rep-left{
+		width: 32px;
+		margin-right: 0.7rem;
+	}
+	.user-photo {
+		display: block;
+		width: 32px;
+		img{
+			width: 32px;
+		}
+	}
+	.user-name{
+		margin-bottom: 0.4rem;
+	}
+	.reply-message{
+		color: #222222;
+		margin-bottom: 0.6rem;
+	}
+	.reply-btn {
+		cursor: pointer;
+	}
+	form {
+
+		padding-top: 0;
+		padding-bottom: 1rem;
+		padding-left: 5px;
+		.input-wrapper{
+		}
+		input[type="text"]{
+			border: 0;
+			resize:none;
+			width: 100%;
+			display: inline-block;
+			vertical-align: middle;
+			height: 20px;
+			padding-left: 5px;
+			padding-top: 3px;
+			padding-bottom: 3px;
+			border:solid 1px #ccc;
+		}
+		.cancel-reply-btn {
+			margin-right: 1rem;
+			vertical-align: middle;
+		}
+		.reply-btn{
+			vertical-align: middle;
+		}
+		.reply-btn, .cancel-reply-btn {
+			padding: 0.2rem 0.5rem;
+			font-size: 1.2rem;
+		}
+		.rightcol {
+			padding-left: 1rem;
+			width: 300px;
+		}
+	}
+}

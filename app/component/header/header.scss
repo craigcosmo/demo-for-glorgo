@@ -1,0 +1,22 @@
+.header {
+	height: 60px;
+	position: relative;
+	background: #6290FF;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	color: #fff;
+	a {
+		color: #fff;
+		text-decoration: none;
+		margin-left: 1rem;
+	}
+}
+.logo {
+	text-transform: capitalize;
+	background: url('image/logo.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 45px;
+	width: 45px;
+	display: inline-block;
+}

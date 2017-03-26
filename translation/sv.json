@@ -1,0 +1,6 @@
+{
+  "registerForm.email": "e-postadress",
+  "registerForm.name": "fullständigt namn",
+  "registerForm.password": "lösenord",
+  "registerForm.passwordConfirm": "confirm password"
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "registerForm.email",
+    "defaultMessage": "email address"
+  },
+  {
+    "id": "registerForm.password",
+    "defaultMessage": "password"
+  }
+]

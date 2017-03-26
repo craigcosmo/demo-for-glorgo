@@ -1,0 +1,13 @@
+# this file tells the apache web server to serve the main index.html in case there is 404 error.
+# we do this because our app uses browser history (a HTML5 feature). Our react router makes use of this feature to display page
+# dynamically and at the same time change the url of each page. This way user can bookmark our dynamic page and search engnine can
+# attain specific url for specfiec page.
+# Our urls would like this www.domain.com/about or www.domain.com/contact_us or www.domain.com/products or www.domain.com/products/id/50
+# After all, this file is only helpful if the front end code is deployed in an apache web server. For nginx server or nodejs server we will need other solutions which are listed in link below
+# https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md#configuring-your-server
+
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]

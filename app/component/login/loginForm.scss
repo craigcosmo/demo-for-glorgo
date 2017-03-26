@@ -1,0 +1,144 @@
+.form {
+
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	background: #fff;
+	position: relative;
+	padding: 3rem;
+	.reg-link {
+		color: #000;
+		text-decoration: none;
+	}
+	input {
+		width: 100%;
+		padding: 1.3rem;
+		transition: all 0.2s ease-in-out;
+		font-size: 1.4rem;
+		color: #444;
+		border: 1px solid #DDDDDD;
+	}
+	input.error{
+		border: 1px solid red ;
+	}
+	input.active {
+		padding: 1.9rem 1.3rem 0.7rem 1.3rem;
+		display: block;
+	}
+	i {
+		position: absolute;
+		top: 50%;
+		transform:translateY(-50%);
+		right: 10px;
+		color: #999
+	}
+	label {
+		position: absolute;
+		top: 0px;
+		left: 1.5rem;
+		color: #0069ff;
+		opacity: 0;
+		transition: all 0.2s ease-in-out;
+		font-size: 1rem;
+		text-transform: capitalize;
+		font-weight: 600;
+	}
+	label.active{
+		top: 0.6rem;
+		opacity: 1;
+	}
+	.top-border {
+		padding-top: 20px;
+		border-top: solid 1px #DDDDDD;
+	}
+	.lock-icon {
+		font-size: 1.8rem;
+	}
+	.signup-btn {
+		width: 97px;
+		height: 39px;
+		text-align: center;
+		line-height: 36px;
+		color: #222222;
+		border: solid 1px #000;
+		border-radius: 3px;
+		display: inline-block;
+		margin-left: auto; 
+		/* algin flex item to the right */
+		text-decoration: none;
+	}
+	.login-sep {
+		padding-bottom: 20px;
+		border-bottom: solid 1px #DDDDDD;
+	}
+	.register-btn {
+		background: #FB4B00;
+		width: 100%;
+		border-radius: 4px;
+		height: 50px;
+		line-height: 50px;
+		color: #fff;
+		text-transform: capitalize;
+	}
+	.register-btn:focus{
+		border: solid 1px #0069ff;
+	}
+	.none{
+		color: inherit;
+	}
+	:global .fb-login-btn , :global .gg-login-btn{
+		background: #3B5999;
+		border-radius: 4px;
+		text-align: center;
+		line-height: 50px;
+		display: inline-block;
+		width: 100%;
+		color: #fff;
+		border: 1px solid transparent !important;
+		font-size: 1.5rem;
+	}
+	:global .gg-login-btn {
+		background: #DC4A38;
+	}
+	:global .example-enter {
+	  opacity: 0.01;
+	  width: 0px;
+	}
+
+	:global .example-enter.example-enter-active {
+	  opacity: 1;
+	  width: 100px;
+	  transition: 71100ms;
+	}
+
+	:global .example-leave {
+	  opacity: 1;
+	  width: 100px;
+	}
+
+	:global .example-leave.example-leave-active {
+	  opacity: 0.01;
+	  width: 0px;
+	  transition: 71100ms;
+	}
+
+	:global .example-appear{
+		opacity: 0;
+
+	}
+	:global .example-appear-active{
+		opacity: 1;
+		transition: opacity 200ms ease-out;
+	}
+	.error-message{
+		
+		position: absolute;
+		bottom: -15px;
+		font-size: 1.1rem;
+		left: 5px;
+		color: red;	
+		transition: all 111s ease-in-out;
+	}
+
+	
+}
+

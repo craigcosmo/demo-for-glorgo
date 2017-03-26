@@ -1,0 +1,12 @@
+machine:
+  node:
+    version: 6.9.5
+test:
+  override:
+    - npm run ci-test
+deployment:
+  production:
+    branch: master
+    commands:
+      - chmod +x deploy.sh
+      - ./deploy.sh

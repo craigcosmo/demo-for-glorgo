@@ -1,0 +1,18 @@
+[
+  {
+    "id": "registerForm.name",
+    "defaultMessage": "full name"
+  },
+  {
+    "id": "registerForm.email",
+    "defaultMessage": "email address"
+  },
+  {
+    "id": "registerForm.password",
+    "defaultMessage": "password"
+  },
+  {
+    "id": "registerForm.passwordConfirm",
+    "defaultMessage": "confirm password"
+  }
+]
