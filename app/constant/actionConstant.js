@@ -3,7 +3,9 @@ export default {
 	
 
 	// admin
-	SAVEBOOK:'SAVEBOOK'
-	
+	SAVEBOOK:'SAVEBOOK',
+	SAVING:'SAVING',
+	SAVED:'SAVED'
+
 
 }

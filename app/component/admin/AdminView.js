@@ -2,7 +2,6 @@ import React from 'react'
 import AdminForm from 'AdminForm'
 import Header from 'Header'
 import Modal from 'react-modal'
-import Footer from 'Footer'
 import Loader from 'Loader'
 import './adminView.scss'
 import store from 'store'
@@ -18,9 +17,10 @@ export default class AdminView extends React.Component {
 	onData(data){
 		this.setState({loader:true})
 		this.props.submitBook(data)
-		.then( ()=> {
-			this.setState({successModal:true, loader:false})
-		})
+		// .subscribe( (a)=> {
+		// 	console.log(a)
+		// 	// this.setState({successModal:true, loader:false})
+		// })
 	}
 	closeModal(){
 		this.setState({successModal:false})
@@ -47,7 +47,7 @@ export default class AdminView extends React.Component {
 						</div>
 					</Modal>
 				</main>
-				<Footer />
+
 			</div>
 		)
 	}

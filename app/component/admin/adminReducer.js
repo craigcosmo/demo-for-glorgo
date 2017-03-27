@@ -6,7 +6,7 @@ const defaultState= {
 
 export default (state = defaultState, action) => {
 	switch(action.type){
-		case i.LOGIN_SUBMIT_SUCCESS:
+		case i.SAVED:
 			return {...state, data : action.payload}
 	}
 	return state

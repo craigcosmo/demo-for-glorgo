@@ -1,8 +1,10 @@
 import { combineEpics, createEpicMiddleware } from 'redux-observable'
 
-import pingEpic from 'homeEpic'
+import homeEpic from 'homeEpic'
+import adminEpic from 'adminEpic'
 
 export const mainEpic = combineEpics(
-	pingEpic
+	homeEpic,
+	adminEpic
 )
 export const epicMiddleware = createEpicMiddleware(mainEpic)

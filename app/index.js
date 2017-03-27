@@ -4,14 +4,12 @@ import {Router, Route, IndexRoute } from 'react-router'
 import {Provider} from 'react-redux'
 import MainContainer from 'MainContainer'
 import mainStore from 'mainStore'
-import Register from 'Register'
 import {IntlProvider} from 'react-intl-redux'
 import {history} from 'mainStore'
 import sv from 'sv.json'
 import Home from 'Home'
 import L from 'locationConstant'
 import AdminView from 'AdminView'
-
 
 
 const locale='en'
@@ -25,7 +23,7 @@ ReactDOM.render(
 				<Route path="/" component={MainContainer}>
 					<IndexRoute component={Home} />
 					<Route path={'/admin'} component={AdminView} />
-
+					{/*<Route path=":topicId/:topicName" component={TopicView} />*/}
 				</Route>
 			</Router>
 		</IntlProvider>

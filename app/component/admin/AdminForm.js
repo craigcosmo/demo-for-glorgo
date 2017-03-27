@@ -53,12 +53,11 @@ class AdminForm extends React.Component{
 
 		if (!this.validateOnSubmit()) return
 
-		let regData = {
-			email: this.state.email,
-			password: this.state.password,
-			name: this.state.name
+		let data = {
+			name: this.state.name,
+			author: this.state.author
 		}
-		this.props.onData(regData)
+		this.props.onData(data)
 		
 	}
 	nameError(reason){

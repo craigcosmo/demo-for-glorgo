@@ -17,7 +17,5 @@ export const sitePort = port
 export default {
 	siteUrl : url,
 	img: url+'image/',
-	facebook: '874548529292218',
-	google:'927836081945-6k3n63vjb9hnq0tponffd4hgief1nr7l.apps.googleusercontent.com'
-	
+	postBookApi: api+'postBook'
 }
