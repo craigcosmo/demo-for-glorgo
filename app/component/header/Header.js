@@ -2,7 +2,6 @@ import React from 'react'
 import {Link} from 'react-router'
 import user from 'user'
 import config from 'config'
-import SearchInput from 'SearchInput'
 import DropMenu from 'DropMenu'
 // import UserMenu from 'userMenu/UserMenu'
 import HeaderLogin from 'HeaderLogin'
@@ -48,18 +47,7 @@ export default class Header extends React.Component {
 	render(){
 		return (
 			<header styleName="header">
-				<div className="row maxheight">
-					<div className="col-xs-12 col-md-6 col-sm-6 col-xs-6 max-height">
-						<div className="vac">
-							<a styleName="logo"></a>
-						</div>
-					</div>
-					<div className="col-xs-12 col-md-6 col-sm-6 col-xs-6 max-height">
-						<div className="va right">
-							{this.renderUserSection()}
-						</div>
-					</div>
-				</div>
+				{this.renderUserSection()}
 			</header>
 		)
 	}

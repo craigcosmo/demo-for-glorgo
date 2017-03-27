@@ -1,0 +1,38 @@
+[
+	{
+		"id": 1,
+		"title": "davinci code",
+		"author": "dan brown",
+		"image": "logo.png"
+	},
+	{
+		"id": 2,
+		"title": "london bridges",
+		"author": "james Patterson",
+		"image": "logo.png"
+	},
+	{
+		"id": 3,
+		"title": "flash boys",
+		"author": "Michael Lewis",
+		"image": "logo.png"
+	},
+	{
+		"id": 4,
+		"title": "gone with the wind",
+		"author": "Margaret Mitchell",
+		"image": "logo.png"
+	},
+	{
+		"id": 5,
+		"title": "the spy who loves me",
+		"author": "ian fleeming",
+		"image": "logo.png"
+	},
+	{
+		"id": 6,
+		"title": "golden eye",
+		"author": "ian fleeming",
+		"image": "logo.png"
+	}
+]

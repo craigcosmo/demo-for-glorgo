@@ -1,30 +1,25 @@
 .home { 
-	color: red;
 }
-.mama{
-	color: #ccc;
+.title{
+	display: block;
+	font-size: 18px;
+	padding-bottom: 10px;
+	text-transform: capitalize;
 }
-.gong{
-	background: url('plus.png') no-repeat center center;
-	height: 100px;
-	width: 100px;
-	background-size: cover;
+.author{
+	display: block;
+	text-transform: capitalize;
 }
-.j{
-	background: url('j.png');
-	height: 100px;
-	width: 100px;
-	background-size: cover;
+.item {
+	padding: 10px;
+	width: 33.3%;
 }
-.come {
-	color: #fff;
+.inner {
+	border: solid 1px #ccc;
+	min-height: 200px;
+	padding: 10px;
 }
-.string{
-
-}
-.bong {
-
-}
-.d {
-
+.item-wrapper {
+	display: flex;
+	flex-flow: wrap;
 }

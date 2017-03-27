@@ -5,6 +5,10 @@
 	padding-right: 1rem;
 	padding-left: 1rem;
 	color: #fff;
+	text-align: right;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
 	a {
 		color: #fff;
 		text-decoration: none;
@@ -19,4 +23,8 @@
 	height: 45px;
 	width: 45px;
 	display: inline-block;
+}
+.user-s {
+	display: inline-block;
+	height: 100%;
 }
