@@ -12,6 +12,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import classnames from 'classnames'
 import FacebookLogin from 'react-facebook-login'
 import GoogleLogin from 'react-google-login'
+import {HotKeys} from 'react-hotkeys'
 
 const messages = defineMessages({
 	title: {
@@ -28,22 +29,21 @@ class AdminForm extends React.Component{
 	constructor(props) {
 		super(props)
 		this.onSubmit = this.onSubmit.bind(this)
-		this.onName = this.onName.bind(this)
+		this.onTitle = this.onTitle.bind(this)
 		this.onAuthor = this.onAuthor.bind(this)
 
 		this.state = {
-			registerModal: false,
-			nameErrorMessage: '',
+			titleErrorMessage: '',
 			authorErrorMessage:'',
 
-			name :'',
+			title :'',
 			author:''
 		}
 	}
 
 	validateOnSubmit(){
 		let input = [
-			{value:this.state.name, callback: this.nameError.bind(this) },
+			{value:this.state.title, callback: this.titleError.bind(this) },
 			{value:this.state.author, callback: this.authorError.bind(this) },
 		]
 		return validate(input)
@@ -54,17 +54,17 @@ class AdminForm extends React.Component{
 		if (!this.validateOnSubmit()) return
 
 		let data = {
-			name: this.state.name,
+			title: this.state.title,
 			author: this.state.author
 		}
 		this.props.onData(data)
 		
 	}
-	nameError(reason){
+	titleError(reason){
 		if (reason === 'length'){ 
-			this.setState({nameErrorMessage : 'required'})
+			this.setState({titleErrorMessage : 'required'})
 		}
-		else {this.setState({nameErrorMessage : ''})}
+		else {this.setState({titleErrorMessage : ''})}
 	}
 	authorError(reason){
 		if (reason === 'length'){ 
@@ -75,11 +75,11 @@ class AdminForm extends React.Component{
 	getRandom(length) {
 		return Math.floor(Math.pow(10, length-1) + Math.random() * 9 * Math.pow(10, length-1))
 	}
-	onName(e){
-		this.setState({name: e.target.value})
+	onTitle(e){
+		this.setState({title: e.target.value})
 		validate({
 			value:e.target.value,
-			callback: this.nameError.bind(this)
+			callback: this.titleError.bind(this)
 		})
 	}
 	onAuthor(e){
@@ -91,10 +91,18 @@ class AdminForm extends React.Component{
 	}
 	
 	render(){ 
-		const nameStyle = classnames({
-			none: !this.state.name,
-			active: this.state.name,
-			error: this.state.nameErrorMessage
+
+		const keyMap = {
+			'submitForm': 'command+enter'
+		}
+		const handlers = {
+			'submitForm': this.onSubmit.bind(this)
+		}
+
+		const titleStyle = classnames({
+			none: !this.state.title,
+			active: this.state.title,
+			error: this.state.titleErrorMessage
 		})
 		const authorStyle = classnames({
 			none: !this.state.author,
@@ -103,40 +111,40 @@ class AdminForm extends React.Component{
 		})
 		
 		return(
-			<form onSubmit={this.onSubmit} styleName="form">
-				<div styleName="relative user-wrapper">
-					<label styleName={this.state.name ? 'active':'none'}>{this.props.intl.formatMessage(messages.title)}</label>
-					<input
-						autoComplete="off" 
-						ref= "name" 
-						styleName= {nameStyle} 
-						type="text" 
-						placeholder={this.props.intl.formatMessage(messages.title)} 
-						onChange={this.onName} />
-					<i className="fa fa-user" aria-hidden="true"></i>
-					{
-						this.state.nameErrorMessage && 
+			<HotKeys keyMap={keyMap} handlers={handlers}>
+				<form onSubmit={this.onSubmit} styleName="form">
+					<div styleName="relative user-wrapper">
+						<label styleName={this.state.title ? 'active':'none'}>{this.props.intl.formatMessage(messages.title)}</label>
+						<input
+							autoComplete="off" 
+							styleName= {titleStyle} 
+							type="text" 
+							placeholder={this.props.intl.formatMessage(messages.title)} 
+							onChange={this.onTitle} />
+						<i className="fa fa-user" aria-hidden="true"></i>
+						{
+						this.state.titleErrorMessage && 
 						<ReactCSSTransitionGroup 
 							transitionName="example" 
 							transitionAppear={true} 
 							transitionAppearTimeout={300}
 							transitionEnterTimeout={300}
 							transitionLeaveTimeout={300}>
-							<div styleName="error-message">{this.state.nameErrorMessage}</div>
+							<div styleName="error-message">{this.state.titleErrorMessage}</div>
 						</ReactCSSTransitionGroup>
 					}
-				</div>
-				<div styleName="relative">
-					<label styleName={this.state.author ? 'active':'none'}>{this.props.intl.formatMessage(messages.author)}</label>
-					<input
-						autoComplete="off" 
-						styleName= {authorStyle}
-						type="text" 
-						placeholder={this.props.intl.formatMessage(messages.author)} 
-						onChange={this.onAuthor} />
-					<i className="fa fa-envelope mail-icon" aria-hidden="true"></i>
+					</div>
+					<div styleName="relative">
+						<label styleName={this.state.author ? 'active':'none'}>{this.props.intl.formatMessage(messages.author)}</label>
+						<input
+							autoComplete="off" 
+							styleName= {authorStyle}
+							type="text" 
+							placeholder={this.props.intl.formatMessage(messages.author)} 
+							onChange={this.onAuthor} />
+						<i className="fa fa-envelope mail-icon" aria-hidden="true"></i>
 
-					{
+						{
 						this.state.authorErrorMessage && 
 						<ReactCSSTransitionGroup 
 							transitionName="example" 
@@ -147,11 +155,12 @@ class AdminForm extends React.Component{
 							<div styleName="error-message">{this.state.authorErrorMessage}</div>
 						</ReactCSSTransitionGroup>	
 					}
-				</div>
-				<div>
-					<button styleName="register-btn">submit</button>
-				</div>
-			</form>
+					</div>
+					<div>
+						<button styleName="register-btn">submit</button>
+					</div>
+				</form>
+			</HotKeys>
 		)
 	}
 }

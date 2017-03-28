@@ -10,17 +10,18 @@ export default class Home extends React.Component {
 	constructor(props) {
 		super(props)
 		
-
-		// storing
-		store.set('books', books )
-
-		this.collection = store.get('books')
+		if (store.get('books')) {
+			this.collection = store.get('books')
+		}else{
+			store.set('books', books )
+			this.collection = store.get('books')
+		}
 	}
 	componentDidMount(){
 		this.props.ping('some val')
 	}
-	onBuy(){
-
+	onBuy(id){
+		console.log(id)
 	}
 	renderBook(){
 		console.log('sds')
@@ -28,9 +29,13 @@ export default class Home extends React.Component {
 			return (
 				<div key={index} styleName="item">
 					<div styleName="inner">
-						<span styleName="title">{i.title}</span>
-						<span styleName="author">{i.author}</span>
-						<button onClick={this.onBuy.bind(this)}>buy</button>
+						<div styleName="text-section">
+							<span styleName="title">{i.title}</span>
+							<span styleName="author">{i.author}</span>
+						</div>
+						<div styleName="btn-section">
+							<button styleName="buy-btn" onClick={this.onBuy.bind(this, i.id)}>buy</button>
+						</div>
 					</div>
 				</div>
 			)

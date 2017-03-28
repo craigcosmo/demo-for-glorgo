@@ -5,25 +5,22 @@ import Modal from 'react-modal'
 import Loader from 'Loader'
 import './adminView.scss'
 import store from 'store'
+import adminEpic from 'adminEpic'
 
 export default class AdminView extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			successModal: false,
-			loader:false
-		}
+		// console.log(props)
+		// this.state = {
+		// 	loader:false
+		// }
+	}
+	componentDidMount(){
+		// console.log(this.props.admin.loading)
 	}
 	onData(data){
-		this.setState({loader:true})
-		this.props.submitBook(data)
-		// .subscribe( (a)=> {
-		// 	console.log(a)
-		// 	// this.setState({successModal:true, loader:false})
-		// })
-	}
-	closeModal(){
-		this.setState({successModal:false})
+		// this.setState({loader:true})
+		this.props.saveBook(data)
 	}
 	render() {
 		return (
@@ -32,23 +29,13 @@ export default class AdminView extends React.Component {
 				<main>
 					<h1>ADMIN</h1>
 					<AdminForm onData = {this.onData.bind(this)} />
-					{this.state.loader && <div><br /><br /><Loader /></div>}
-					<Modal
-						overlayClassName="register-modal-overlay"
-						className="register-modal"
-						isOpen={this.state.successModal} 
-						onRequestClose={this.closeModal.bind(this)}
-						contentLabel="modal">
-						<div>
-							<span >register completed</span> 
-							<span onClick={this.closeModal.bind(this)}>
-								<i aria-hidden="true"></i>
-							</span>
-						</div>
-					</Modal>
+					{this.props.admin.loading && <div><br /><br /><Loader /></div>}
 				</main>
-
 			</div>
 		)
 	}
+}
+
+AdminView.propTypes ={
+	admin: React.PropTypes.object
 }

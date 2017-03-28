@@ -1,13 +1,17 @@
 import i from 'actionConstant'
 
 const defaultState= {
-	data: {}
+	loading: false
 }
 
 export default (state = defaultState, action) => {
 	switch(action.type){
+		case i.SAVEBOOK:
+			return{...state, loading:true}
+		case i.SAVING:
+			return{...state, loading:true}
 		case i.SAVED:
-			return {...state, data : action.payload}
+			return {...state, loading:false}
 	}
 	return state
 }

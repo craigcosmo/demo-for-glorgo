@@ -14,10 +14,11 @@ export default combineReducers({
 	intl: intlReducer
 })
 
-export const mapStateToProps = (state) => {
-	return {
-		amdin: state.amdin,
-	}
-}
+export const mapStateToProps = state => ({
+	admin: state.admin,
+	routing: state.routing,
+	intl: state.intl
+})
+
 
 

@@ -1,11 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
-import user from 'user'
 import config from 'config'
-import DropMenu from 'DropMenu'
-// import UserMenu from 'userMenu/UserMenu'
-import HeaderLogin from 'HeaderLogin'
-import HeaderSignOut from 'HeaderSignOut'
 import './header.scss'
 
 export default class Header extends React.Component {
@@ -41,8 +36,13 @@ export default class Header extends React.Component {
 		this.setState({userMenu:false})
 	}
 	renderUserSection(){
-		if (user()) return <HeaderSignOut />
-		else return <HeaderLogin/>
+		console.log(this.props.router.location.pathname)
+		let loc = this.props.router.location.pathname
+		if (loc.indexOf('admin') !== -1) return <Link to="/">home</Link> 
+		else return <Link to="/admin">admin</Link>
+	}
+	renderCheckOut(){
+		
 	}
 	render(){
 		return (

@@ -5,8 +5,7 @@ import Page from 'Page'
 import {mapStateToProps} from 'mainReducer'
 
 
-function mapDispatchToProps(dispatch){
-	return bindActionCreators(mainAction,dispatch)
-}
+const mapDispatchToProps = (dispatch) => bindActionCreators(mainAction,dispatch)
+
 export default connect(mapStateToProps, mapDispatchToProps)(Page)
 

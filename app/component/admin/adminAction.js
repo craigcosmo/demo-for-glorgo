@@ -3,21 +3,7 @@ import config from 'config'
 import store from 'store'
 import request from 'request'
 
-
-// export function submitBook(data){
-// 	console.log('ada')
-// 	return (dispatch) => {
-// 		return new Promise( (resolve, reject) => {
-// 			dispatch({
-// 				type: i.SAVEBOOK,
-// 				payload: data
-// 			})
-// 		})
-
-// 	}
-// }
-
-// export function submitBook(data){
+// export function saveBook(data){
 // 	return (dispatch) => {
 // 		dispatch({
 // 			type: i.SAVEBOOK,
@@ -26,18 +12,19 @@ import request from 'request'
 // 	}
 // }
 
-export function submitBook(data){
+export function saveBook(data){
 	return {
 		type: i.SAVEBOOK,
 		payload: data
 	}
 }
-function submittingBook(){
+export function savingBook(){
+	console.log('mama')
 	return {
 		type:i.SAVING
 	}
 }
-export function submittedBook(){
+export function savedBook(){
 	return {
 		type:i.SAVED
 	}
