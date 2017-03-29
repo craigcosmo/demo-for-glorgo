@@ -5,7 +5,7 @@ import Header from 'Header'
 import CheckoutForm from 'CheckoutForm'
 import moment from 'moment'
 
-export default class CheckOut extends React.Component{
+export default class CheckOutView extends React.Component{
 	constructor(){
 		super()
 		this.state={

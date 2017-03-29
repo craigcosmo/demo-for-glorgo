@@ -22,10 +22,16 @@ npm run build
 npm run dev
 ```
 
-## Test
+## Test Component
 
 ```sh
 npm run test
+```
+
+## Unit Test
+
+```sh
+npm run utest
 ```
 
 ## To release for production
@@ -34,29 +40,79 @@ npm run test
 npm run release
 ```
 
-Built files are stor in `dist/production`
+Built files are stored in `dist/production`
 
-## What happen when build
+## What happen when build?
 
-Build/Release command will generates files like bundle.js, bundle.css, index.html and assets. Those are store in `dist` folder ready to be shipped.
-
-CSS tag and JS tag are auto inserted into final index.html
-
+Build/Release command will generates files like bundle.js, bundle.css, index.html and assets. Those are store in `dist` folder.
 
 ## Folder structure 
 
 
-`app` contains components and logic
+`app` contains components, helpers and logics
 
 `dist` contains the code that is ready to ship
 
 `node_modules` open source libraries/dependcies that we need to use in the app
 
-`spec` this we where we put our test code in.
+`spec` this is where we put our component test code
 
-## Golbal CSS Rules
+`test` this is where we put our unit test code
 
-Ex:
+## To use CSS module
+
+Css files should have `.scss` extension
+
+**LoginComponet.js**
+```
+import React from 'react'
+import './loginComponent.scss'
+
+export default class loginComponent extends React.Component {
+	render() {
+		return (
+			<div styleName="register">
+				<div styleName="button"></div>
+			</div>
+		)
+	}
+}
+```
+
+**loginComponent.scss**
+
+```scss
+.register{
+
+}
+.button{
+
+}
+```
+
+## How to make some rules global?
+
+**ContainerComponent.js**
+
+```
+import React from 'react'
+import './global.scss'
+
+export default class loginComponent extends React.Component {
+	render() {
+		return (
+			<div className="register">
+				<div className="button"></div>
+			</div>
+		)
+	}
+}
+```
+
+Notice the `className` instead of `styleName`?
+
+**global.scss**
+
 ```scss
 <!-- multiline -->
 :global { 
@@ -76,7 +132,7 @@ Ex:
 }
 ```
 
-CSS file will name will have `.scss` extension
+For more detail about how to use this kind of CSS module please visit this [https://github.com/gajus/babel-plugin-react-css-modules](https://github.com/gajus/babel-plugin-react-css-modules)
 
 ## How to create a component?
 
@@ -125,11 +181,6 @@ Asset like images and fonts follow cammel case rule
 
 Ex: `yellowBackground.png`
 
-
-## How add image asset to project?
-
-Paste your images into `app/image` folder
-
 ## How to import a file or module into your code?
 
 This file system basically allow to import files or modules by just doing like so
@@ -137,19 +188,40 @@ This file system basically allow to import files or modules by just doing like s
 `import React from 'react'`
 `import Header from 'Header'`
 
-As you can see there's is no path, just file name. 
+There's is no path, just file name. 
 
 To use this system your file name should be uniqe.
 
-There is case you have two file in your app with the same name, you can import them like this
+There is case you have two files in your app with the same name, you can import them like this
 
-`import Header from 'userAccountFolder/Header'`
+**Register.js**
 
-`import Header from 'adminfolder/Header'`
+```js
+import Header from 'userAccountFolder/Header'
+```
+
+**Acount.js**
+
+```js
+import Header from 'adminfolder/Header'
+```
 
 Just add the parent folder name before your file 
 
-If you have mistakenly imported two files with the same name. Webpack build system will notify you in the console.
+If you have mistakenly imported two files with the same name some where in the project. Webpack's build system will notify you in the console.
+
+However this pattern doesn't stop you from importing module the normal way. Can always do like this
+
+```js
+import Header from '../../../../../userAccountFolder/Header'
+```
+
+or like this
+
+```js
+import Header from 'app/component/smallCompoent/sub/shared/userAccountFolder/Header'
+```
+
 
 ## Support
 

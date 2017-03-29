@@ -2,7 +2,6 @@ import React from 'react'
 import './checkoutForm.scss'
 import validate from 'validate'
 import {Link} from 'react-router'
-import L from 'locationConstant'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import classnames from 'classnames'
 import {HotKeys} from 'react-hotkeys'
@@ -34,18 +33,14 @@ export default class AdminForm extends React.Component{
 	}
 
 	validateOnSubmit(){
-
 		this.input = [
 			{value:this.state.name, callback: this.handleNameError.bind(this) },
 			{value:this.state.email, check:{email:true}, callback: this.handlEmailError.bind(this) },
 			{value:this.state.address, callback: this.handleAddressError.bind(this) },
 			{value:this.state.billingAddress, callback: this.handleBillingAddressError.bind(this) },
-			// {value:this.state.creditCard, check:{creditCard:true}, callback: this.handleCreditCardError.bind(this) },
-			{value:this.state.creditCard, check:{creditCard:false}, callback: this.handleCreditCardError.bind(this) },
-			
+			{value:this.state.creditCard, check:{creditCard:true}, callback: this.handleCreditCardError.bind(this) }
 		]
 		return validate(this.input)
-	
 	}
 	onSubmit(e){
 		e.preventDefault()
@@ -60,7 +55,6 @@ export default class AdminForm extends React.Component{
 			creditCard: this.state.creditCard
 		}
 		this.props.onData(data)
-		
 	}
 	handleNameError(reason){
 		if (reason==='required') this.setState({nameErrorMessage : 'required'})
@@ -103,7 +97,6 @@ export default class AdminForm extends React.Component{
 	}
 	onCreditCardChange(e){
 		this.handleChange(e, this.handleCreditCardError.bind(this), 'creditCard', 'creditCard' )
-		this.handleChange(e, this.handleCreditCardError.bind(this), 'creditCard', '' )
 	}
 	onBillingAddressChange(e){
 		this.handleChange(e, this.handleBillingAddressError.bind(this), 'billingAddress' )
@@ -264,6 +257,3 @@ export default class AdminForm extends React.Component{
 		)
 	}
 }
-
-
-

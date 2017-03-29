@@ -9,10 +9,11 @@
 		"stylint": "stylelint app/**/*.scss --syntax scss",
 		"test": "karma start karma.conf.js",
 		"ci-test": "karma start karma.conf.js --single-run",
+		"utest":"mocha --watch --compilers js:babel-register",
+		"ci-utest": "mocha --compilers js:babel-register",
 		"build": "npm run lint && NODE_ENV=development webpack --hide-modules",
 		"release": "NODE_ENV=production webpack -p --hide-modules",
-		"dev": "NODE_ENV=devserver nodemon --watch webpack.config.babel.js --watch app/image --watch app/font --watch package.json ./node_modules/.bin/webpack-dev-server --progress --inline",
-		"lang": "babel-node ./translationRunner.js"
+		"dev": "NODE_ENV=devserver nodemon --watch webpack.config.babel.js --watch app/image --watch app/font --watch package.json ./node_modules/.bin/webpack-dev-server --progress --inline"
 	},
 	"author": "Craig Nguyen",
 	"license": "UNLICENSED",

@@ -1,9 +1,6 @@
 import React from 'react'
 import './home.scss'
 export default class BuyButton extends React.Component{
-	constructor(){
-		super()
-	}
 	onClick(){
 		console.log('sdsd')
 		this.props.onBuy(this.props.i)
@@ -14,3 +11,4 @@ export default class BuyButton extends React.Component{
 		)
 	}
 }
+

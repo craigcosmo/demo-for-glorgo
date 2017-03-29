@@ -20,13 +20,6 @@ export default class Home extends React.Component {
 			this.collection = store.get('books')
 		}
 	}
-	componentDidMount(){
-		this.props.ping('some val')
-	}
-	onBuy(a){
-		// console.log(a)
-
-	}
 	renderBook(){
 		console.log('sds')
 		return this.collection.map( (i, index) => {
