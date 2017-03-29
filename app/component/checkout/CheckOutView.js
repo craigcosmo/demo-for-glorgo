@@ -19,18 +19,19 @@ export default class CheckOut extends React.Component{
 		if (store.get('history')) {
 			let history = store.get('history')
 			let cart = store.get('cart')
-			data.time = moment().valueOf()
+			data.time = moment()
 			data.cart = cart
 			history.push(data)
+			store.set('history', history)
 		}else{
 			let history = []
 			let cart = store.get('cart')
-			data.time = moment().valueOf()
+			data.time = moment()
 			data.cart = cart
 			history.push(data)
 			store.set('history', history)
 		}
-		alert('thank you for your order')
+		console.log('done')
 	}
 	removeItemInCart(index){
 		if (store.get('cart')) {

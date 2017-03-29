@@ -11,7 +11,7 @@ export default (state = defaultState, action) => {
 		case i.SAVING:
 			return{...state, loading:true}
 		case i.SAVED:
-			return {...state, loading:false}
+			return {...state, loading:'success'}
 	}
 	return state
 }

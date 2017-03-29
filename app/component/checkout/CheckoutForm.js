@@ -30,18 +30,28 @@ export default class AdminForm extends React.Component{
 			billingAddress:'',
 			creditCard:''
 		}
+
 	}
 
 	validateOnSubmit(){
-		if( this.onNameChange(this.state.name) ||
-		this.onAddressChange(this.state.address) ||
-		this.onEmailChange(this.state.email) ||
-		this.onCreditCardChange(this.state.creditCard) ||
-		this.onBillingAddressChange(this.state.billingAddress) ){
-			return true
-		}else{
+		this.onNameChange(this.state.name) 
+		this.onAddressChange(this.state.address) 
+		this.onEmailChange(this.state.email) 
+		this.onCreditCardChange(this.state.creditCard) 
+		this.onBillingAddressChange(this.state.billingAddress)
+
+		if (this.state.nameErrorMessage && 
+			this.state.creditCardErrorMessage &&
+			this.state.emailErrorMessage &&
+			this.state.addressErrorMessage &&
+			this.state.billingAddressErrorMessage
+			) {
 			return false
+		}else{
+			return true
 		}
+
+		
 	}
 	onSubmit(e){
 		e.preventDefault()
@@ -82,26 +92,29 @@ export default class AdminForm extends React.Component{
 	}
 	handleChange(e, callback, name, creditCard='', email=''){
 		this.setState({[name]: e.target ? e.target.value : e})
-		return validate({
+		 
+		let a = validate({
 			value:e.target ? e.target.value : e,
 			callback: callback,
 			check: {creditCard: creditCard ? true : false, email: email ? true : false}
 		})
+
+
 	}
 	onNameChange(e){
-		return this.handleChange(e, this.handleNameError.bind(this), 'name')
+		this.handleChange(e, this.handleNameError.bind(this), 'name')
 	}
 	onEmailChange(e){
-		return this.handleChange(e, this.handlEmailError.bind(this), 'email', '', 'email' )
+		this.handleChange(e, this.handlEmailError.bind(this), 'email', '', 'email' )
 	}
 	onAddressChange(e){
-		return this.handleChange(e, this.handleAddressError.bind(this), 'address' )
+		this.handleChange(e, this.handleAddressError.bind(this), 'address' )
 	}
 	onCreditCardChange(e){
-		return this.handleChange(e, this.handleCreditCardError.bind(this), 'creditCard', 'creditCard' )
+		this.handleChange(e, this.handleCreditCardError.bind(this), 'creditCard', 'creditCard' )
 	}
 	onBillingAddressChange(e){
-		return this.handleChange(e, this.handleBillingAddressError.bind(this), 'billingAddress' )
+		this.handleChange(e, this.handleBillingAddressError.bind(this), 'billingAddress' )
 	}
 	
 	render(){ 

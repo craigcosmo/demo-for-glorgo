@@ -31,6 +31,7 @@ export default (data) =>{
 
 	function preCall(i, reason){
 		if (i.hasOwnProperty('callback') && typeof i.callback == 'function') {
+			// i.callback(reason)
 			setTimeout(() =>{ i.callback(reason) },0)
 		}
 	}

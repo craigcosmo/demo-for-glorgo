@@ -29,7 +29,8 @@ export default class AdminView extends React.Component {
 				<main>
 					<h1>ADMIN</h1>
 					<AdminForm onData = {this.onData.bind(this)} />
-					{this.props.admin.loading && <div><br /><br /><Loader /></div>}
+					{this.props.admin.loading===true && <div><br /><br /><Loader /></div>}
+					{this.props.admin.loading==='success' && <div><br /><br />success</div>}
 				</main>
 			</div>
 		)
