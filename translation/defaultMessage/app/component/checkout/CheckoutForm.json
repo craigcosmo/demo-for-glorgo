@@ -1,0 +1,10 @@
+[
+  {
+    "id": "adminForm.title",
+    "defaultMessage": "title"
+  },
+  {
+    "id": "adminForm.author",
+    "defaultMessage": "author"
+  }
+]

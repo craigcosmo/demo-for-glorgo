@@ -43,8 +43,8 @@ class AdminForm extends React.Component{
 
 	validateOnSubmit(){
 		let input = [
-			{value:this.state.title, callback: this.titleError.bind(this) },
-			{value:this.state.author, callback: this.authorError.bind(this) },
+			{value:this.state.title, callback: this.onTitleError.bind(this) },
+			{value:this.state.author, callback: this.onAuthorError.bind(this) },
 		]
 		return validate(input)
 	}
@@ -60,16 +60,12 @@ class AdminForm extends React.Component{
 		this.props.onData(data)
 		
 	}
-	titleError(reason){
-		if (reason === 'length'){ 
-			this.setState({titleErrorMessage : 'required'})
-		}
+	onTitleError(reason){
+		if (reason)this.setState({titleErrorMessage : 'required'})
 		else {this.setState({titleErrorMessage : ''})}
 	}
-	authorError(reason){
-		if (reason === 'length'){ 
-			this.setState({authorErrorMessage : 'required'})
-		}
+	onAuthorError(reason){
+		if (reason)this.setState({authorErrorMessage : 'required'})
 		else {this.setState({authorErrorMessage : ''})}
 	}
 	getRandom(length) {
@@ -157,7 +153,7 @@ class AdminForm extends React.Component{
 					}
 					</div>
 					<div>
-						<button styleName="register-btn">submit</button>
+						<button styleName="register-btn">Add Book</button>
 					</div>
 				</form>
 			</HotKeys>

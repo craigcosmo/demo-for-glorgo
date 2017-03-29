@@ -5,6 +5,9 @@ import './home.scss'
 import books from 'books.json'
 import {Link} from 'react-router'
 import store from 'store'
+import BuyButton from 'BuyButton'
+import AddedButton from 'AddedButton'
+import Item from 'Item'
 
 export default class Home extends React.Component {
 	constructor(props) {
@@ -20,24 +23,15 @@ export default class Home extends React.Component {
 	componentDidMount(){
 		this.props.ping('some val')
 	}
-	onBuy(id){
-		console.log(id)
+	onBuy(a){
+		// console.log(a)
+
 	}
 	renderBook(){
 		console.log('sds')
 		return this.collection.map( (i, index) => {
 			return (
-				<div key={index} styleName="item">
-					<div styleName="inner">
-						<div styleName="text-section">
-							<span styleName="title">{i.title}</span>
-							<span styleName="author">{i.author}</span>
-						</div>
-						<div styleName="btn-section">
-							<button styleName="buy-btn" onClick={this.onBuy.bind(this, i.id)}>buy</button>
-						</div>
-					</div>
-				</div>
+				<Item key={index} i={i} />
 			)
 		})
 	}

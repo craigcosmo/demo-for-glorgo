@@ -72,7 +72,7 @@
 		"max-depth": ["error", 3],
 		"no-obj-calls": "error",
 		"max-nested-callbacks": ["error", 3],
-		"max-params": ["error", 4],
+		"max-params": ["error", 5],
 		"new-parens": "error",
 		"no-nested-ternary": "error",
 		"no-template-curly-in-string": "error",

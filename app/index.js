@@ -10,6 +10,8 @@ import sv from 'sv.json'
 import Home from 'Home'
 import L from 'locationConstant'
 import AdminView from 'AdminView'
+import CheckoutView from 'CheckoutView'
+import OrderHistory from 'OrderHistory'
 
 
 const locale='en'
@@ -23,6 +25,8 @@ ReactDOM.render(
 				<Route path="/" component={MainContainer}>
 					<IndexRoute component={Home} />
 					<Route path={'/admin'} component={AdminView} />
+					<Route path={'/checkout'} component={CheckoutView} />
+					<Route path={'/history'} component={OrderHistory} />
 					{/*<Route path=":topicId/:topicName" component={TopicView} />*/}
 				</Route>
 			</Router>

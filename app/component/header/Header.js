@@ -13,9 +13,6 @@ export default class Header extends React.Component {
 			userMenu:false
 		}
 	}
-	componentDidMount(){
-
-	}
 	logout(){
 		this.props.logout().then( () =>{
 			this.context.router.push('/login')
@@ -35,19 +32,13 @@ export default class Header extends React.Component {
 	closeUserMenu(){
 		this.setState({userMenu:false})
 	}
-	renderUserSection(){
-		console.log(this.props.router.location.pathname)
-		let loc = this.props.router.location.pathname
-		if (loc.indexOf('admin') !== -1) return <Link to="/">home</Link> 
-		else return <Link to="/admin">admin</Link>
-	}
-	renderCheckOut(){
-		
-	}
 	render(){
 		return (
 			<header styleName="header">
-				{this.renderUserSection()}
+				<Link to="/">home</Link>
+				<Link to="/admin">admin</Link>
+				<Link to="/checkout">check out</Link>
+				<Link to="/history">order history</Link>
 			</header>
 		)
 	}

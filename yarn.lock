@@ -1375,6 +1375,12 @@ caniuse-db@^1.0.30000187, caniuse-db@^1.0.30000346, caniuse-db@^1.0.30000604:
   version "1.0.30000609"
   resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000609.tgz#8c141ef09e8c66b7cb6c2b288fa931cc331e38c6"
 
+card-validator@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/card-validator/-/card-validator-4.0.0.tgz#f054ab0f407693fc0ced073f4092e35f53c339c8"
+  dependencies:
+    credit-card-type "^5.0.0"
+
 caseless@~0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.11.0.tgz#715b96ea9841593cc33067923f5ec60ebda4f7d7"
@@ -1796,6 +1802,10 @@ create-hmac@^1.1.0, create-hmac@^1.1.2:
   dependencies:
     create-hash "^1.1.0"
     inherits "^2.0.1"
+
+credit-card-type@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/credit-card-type/-/credit-card-type-5.0.1.tgz#0e35efa17c7d36ea44c659de992b1d13072a587b"
 
 cryptiles@2.x.x:
   version "2.0.5"

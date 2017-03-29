@@ -3,6 +3,29 @@ function validEmail(email) {
 	return re.test(email)
 }
 
+// takes the form field value and returns true on valid number
+function validCreditCard(value) {
+  // accept only digits, dashes or spaces
+	if (/[^0-9-\s]+/.test(value)) return false
+
+	let nCheck = 0, nDigit = 0, bEven = false
+	value = value.replace(/\D/g, '')
+
+	for (let n = value.length - 1; n >= 0; n--) {
+		let cDigit = value.charAt(n),
+			  nDigit = parseInt(cDigit, 10)
+
+		if (bEven) {
+			if ((nDigit *= 2) > 9) nDigit -= 9
+		}
+
+		nCheck += nDigit
+		bEven = !bEven
+	}
+
+	return (nCheck % 10) == 0
+}
+
 export default (data) =>{
 	let valid = true
 
@@ -14,11 +37,11 @@ export default (data) =>{
 	function condition(i) {
 		if (!i.value) {
 			valid = false
-			preCall(i, 'length')
+			preCall(i, 'required')
 		}
-		else if(i.hasOwnProperty('check') && i.check.hasOwnProperty('email') && !validEmail(i.value)){
+		else if(i.hasOwnProperty('check') && i.check.hasOwnProperty('email') && i.check.email === true && !validEmail(i.value)){
 			valid = false
-			preCall(i, 'valid')
+			preCall(i, 'invalid')
 		}
 		else if (i.hasOwnProperty('check') && i.check.hasOwnProperty('min') && i.value.length < i.check.min ) {
 			valid = false
@@ -30,7 +53,11 @@ export default (data) =>{
 		}
 		else if (i.hasOwnProperty('check') && i.check.hasOwnProperty('match') && i.value !== i.check.match ) {
 			valid = false
-			preCall(i, 'match')
+			preCall(i, 'unmatch')
+		}
+		else if( i.hasOwnProperty('check') && i.check.hasOwnProperty('creditCard') && i.check.creditCard === true && !validCreditCard(i.value)){
+			valid = false
+			preCall(i, 'invalid')
 		}
 		else{
 			preCall(i, '')
