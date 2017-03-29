@@ -11,5 +11,10 @@ export default function(){
 	mock.onPost(config.postBookApi).reply(function(){
 		return [200, 'success']
 	})
+
+	mock.onPost(config.submitOrderApi).reply(function(config){
+		return [200, config.data]
+	})
+
 	return ax	
 }

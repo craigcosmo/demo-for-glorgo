@@ -1,9 +1,20 @@
 .order{
-	
+	padding: 10px;
+	h2{
+		margin-bottom: 20px;
+	}	
 }
 .cart {
 
 }
 .personal {
-	
+	background: #ddd;
+	border-radius: 5px;
+	padding: 10px;
+}
+.order-item {
+	padding-bottom: 20px;
+	border-bottom: solid 1px #ccc;
+	margin-bottom: 30px;
+
 }

@@ -38,6 +38,7 @@ export default (data) =>{
 	function condition(i) {
 		if (!i.value) {
 			valid = false
+			console.log('mama',i)
 			preCall(i, 'required')
 		}
 		else if(i.hasOwnProperty('check') && i.check.hasOwnProperty('email') && i.check.email === true && !validEmail(i.value)){

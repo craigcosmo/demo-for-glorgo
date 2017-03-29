@@ -16,7 +16,7 @@ export default class AdminForm extends React.Component{
 		this.onCreditCardChange = this.onCreditCardChange.bind(this)
 		this.onEmailChange = this.onEmailChange.bind(this)
 		this.onBillingAddressChange = this.onBillingAddressChange.bind(this)
-
+		this.input
 		this.state = {
 			nameErrorMessage: '',
 			creditCardErrorMessage:'',
@@ -34,24 +34,18 @@ export default class AdminForm extends React.Component{
 	}
 
 	validateOnSubmit(){
-		this.onNameChange(this.state.name) 
-		this.onAddressChange(this.state.address) 
-		this.onEmailChange(this.state.email) 
-		this.onCreditCardChange(this.state.creditCard) 
-		this.onBillingAddressChange(this.state.billingAddress)
 
-		if (this.state.nameErrorMessage && 
-			this.state.creditCardErrorMessage &&
-			this.state.emailErrorMessage &&
-			this.state.addressErrorMessage &&
-			this.state.billingAddressErrorMessage
-			) {
-			return false
-		}else{
-			return true
-		}
-
-		
+		this.input = [
+			{value:this.state.name, callback: this.handleNameError.bind(this) },
+			{value:this.state.email, check:{email:true}, callback: this.handlEmailError.bind(this) },
+			{value:this.state.address, callback: this.handleAddressError.bind(this) },
+			{value:this.state.billingAddress, callback: this.handleBillingAddressError.bind(this) },
+			// {value:this.state.creditCard, check:{creditCard:true}, callback: this.handleCreditCardError.bind(this) },
+			{value:this.state.creditCard, check:{creditCard:false}, callback: this.handleCreditCardError.bind(this) },
+			
+		]
+		return validate(this.input)
+	
 	}
 	onSubmit(e){
 		e.preventDefault()
@@ -69,11 +63,11 @@ export default class AdminForm extends React.Component{
 		
 	}
 	handleNameError(reason){
-		if (reason) this.setState({nameErrorMessage : 'required'})
+		if (reason==='required') this.setState({nameErrorMessage : 'required'})
 		else {this.setState({nameErrorMessage : ''})}
 	}
 	handleAddressError(reason){
-		if (reason) this.setState({addressErrorMessage : 'required'})
+		if (reason==='required') this.setState({addressErrorMessage : 'required'})
 		else {this.setState({addressErrorMessage:''})}
 	}
 	handleCreditCardError(reason){
@@ -92,14 +86,11 @@ export default class AdminForm extends React.Component{
 	}
 	handleChange(e, callback, name, creditCard='', email=''){
 		this.setState({[name]: e.target ? e.target.value : e})
-		 
 		let a = validate({
 			value:e.target ? e.target.value : e,
 			callback: callback,
 			check: {creditCard: creditCard ? true : false, email: email ? true : false}
 		})
-
-
 	}
 	onNameChange(e){
 		this.handleChange(e, this.handleNameError.bind(this), 'name')
@@ -112,6 +103,7 @@ export default class AdminForm extends React.Component{
 	}
 	onCreditCardChange(e){
 		this.handleChange(e, this.handleCreditCardError.bind(this), 'creditCard', 'creditCard' )
+		this.handleChange(e, this.handleCreditCardError.bind(this), 'creditCard', '' )
 	}
 	onBillingAddressChange(e){
 		this.handleChange(e, this.handleBillingAddressError.bind(this), 'billingAddress' )
@@ -266,6 +258,7 @@ export default class AdminForm extends React.Component{
 					<div>
 						<button styleName="register-btn">order</button>
 					</div>
+
 				</form>
 			</HotKeys>
 		)

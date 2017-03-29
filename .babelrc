@@ -30,13 +30,6 @@
 					".scss": "postcss-scss"
 				}
 			}
-		],
-		[
-			"react-intl",
-			{
-				"messagesDir": "./translation/defaultMessage",
-				"enforceDescriptions": false
-			}
 		]
 	]
 }

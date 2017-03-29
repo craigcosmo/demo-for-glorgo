@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 import './adminForm.scss'
 import { intlShape, injectIntl, defineMessages } from 'react-intl'
@@ -30,12 +28,14 @@ export default class AdminForm extends React.Component{
 	}
 
 	validateOnSubmit(){
-		if( this.onTitleChange(this.state.title) &&
-		this.onAuthorChange(this.state.author) ){
-			return true
-		}else{
-			return false
-		}
+
+		this.input = [
+			{value:this.state.title, callback: this.handleTitleError.bind(this) },
+			{value:this.state.author, callback: this.handleAuthorError.bind(this) },
+			
+		]
+		return validate(this.input)
+
 	}
 	onSubmit(e){
 		e.preventDefault()

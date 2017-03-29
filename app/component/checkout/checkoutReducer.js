@@ -10,7 +10,7 @@ export default (state = defaultState, action) => {
 			return{...state, loading:true}
 		case i.SUBMITING_ORDER:
 			return{...state, loading:true}
-		case i.SUBMITED_ORDER:
+		case i.SUBMITTED_ORDER:
 			return {...state, loading:false}
 	}
 	return state

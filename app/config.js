@@ -17,5 +17,6 @@ export const sitePort = port
 export default {
 	siteUrl : url,
 	img: url+'image/',
-	postBookApi: api+'postBook'
+	postBookApi: api+'postBook',
+	submitOrderApi: api + 'order'
 }

@@ -9,11 +9,11 @@ export default class OrderHistory extends React.Component{
 	}
 	renderCart(i){
 		if (i.hasOwnProperty('cart')) {
-			i.cart.map((i, index) => {
+			return i.cart.map((u, index) => {
 				return (
-					<div key="index">
-						<div>{i.title}</div>
-						<div>{i.author}</div>
+					<div key={index}>
+						<div>{u.title}</div>
+						<div>{u.author}</div>
 					</div>	
 				)
 			})
@@ -22,15 +22,17 @@ export default class OrderHistory extends React.Component{
 	renderHistory(){
 		if (store.get('history')) {
 			let history = store.get('history')
-			history.map( (i, index) => {
+			return history.map( (i, index) => {
+				console.log(i)
 				return (
-					<div key="index">
+					<div key={index} styleName="order-item">
 						<div styleName="personal">
-							<div>{i.name}</div>
-							<div>{i.author}</div>
-							<div>{i.time}</div>
+							<div>name: {i.name}</div>
+							<div>billing address: {i.billingAddress}</div>
+							<div>Order date: {i.time}</div>
 						</div>
 						<div styleName="cart">
+							<h6>Books</h6>
 							{this.renderCart(i)}
 						</div>
 					</div>
@@ -46,7 +48,7 @@ export default class OrderHistory extends React.Component{
 		return(
 			<div styleName="order">
 				<Header {...this.props} />
-				<h3>Order history</h3>
+				<h2>Order history</h2>
 				{this.renderHistory()}
 			</div>
 		)

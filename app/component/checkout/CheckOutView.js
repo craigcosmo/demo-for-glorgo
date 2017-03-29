@@ -8,30 +8,32 @@ import moment from 'moment'
 export default class CheckOut extends React.Component{
 	constructor(){
 		super()
-		// this.removeItemInCart = this.removeItemInCart.bind(this)
 		this.state={
-			renew:false
+			renew:false,
+			success: false
 		}
 	}
 	onData(data){
 		// console.log(data)
-		// save to history
-		if (store.get('history')) {
-			let history = store.get('history')
-			let cart = store.get('cart')
-			data.time = moment()
-			data.cart = cart
-			history.push(data)
-			store.set('history', history)
-		}else{
+		this.setState({success:false})
+		let cart = store.get('cart')
+		data.time = moment()
+		data.cart = cart
+
+		this.props.submitOrder(data).then( (r) =>{
+			console.log(r)
+			// save to history
 			let history = []
-			let cart = store.get('cart')
-			data.time = moment()
-			data.cart = cart
+			if (store.get('history')) history = store.get('history')
 			history.push(data)
 			store.set('history', history)
-		}
-		console.log('done')
+			document.querySelector('form').reset()
+			this.setState({success:true})
+		})
+		
+		// console.log('done')
+
+		
 	}
 	removeItemInCart(index){
 		if (store.get('cart')) {
@@ -79,6 +81,8 @@ export default class CheckOut extends React.Component{
 				<h2>personal info</h2>
 				<div>
 					<CheckoutForm onData={this.onData.bind(this)} />
+					{this.props.checkout.loading && <div>loading</div>}
+					{this.state.success && <div>success</div>}
 				</div>
 			</div>
 		)
