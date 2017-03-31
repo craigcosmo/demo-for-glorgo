@@ -1,7 +1,7 @@
 // process.env.NODE_ENV var is available during build process
 const env = process.env.NODE_ENV
 
-let port = 1111
+let port = 1115
 let hostPort = 1112
 let url = 'http://localhost:'+port+'/'
 let api = 'http://localhost:'+hostPort+'/'
