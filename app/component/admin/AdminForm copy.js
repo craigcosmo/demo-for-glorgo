@@ -11,6 +11,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import classnames from 'classnames'
 import FacebookLogin from 'react-facebook-login'
 import GoogleLogin from 'react-google-login'
+import PropTypes from 'prop-types'
 
 const messages = defineMessages({
 	name: {
@@ -283,7 +284,7 @@ class AdminForm extends React.Component{
 
 AdminForm.propTypes = {
 	intl: intlShape.isRequired,
-	onData: React.PropTypes.func.isRequired
+	onData: PropTypes.func.isRequired
 }
 
 

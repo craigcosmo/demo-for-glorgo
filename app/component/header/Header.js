@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router'
 import config from 'config'
 import './header.scss'
+import PropTypes from 'prop-types'
 
 export default class Header extends React.Component {
 	constructor(){
@@ -43,4 +44,4 @@ export default class Header extends React.Component {
 		)
 	}
 }
-Header.contextTypes = {router: React.PropTypes.object.isRequired}
+Header.contextTypes = {router: PropTypes.object.isRequired}

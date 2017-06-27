@@ -6,6 +6,7 @@ import Loader from 'Loader'
 import './adminView.scss'
 import store from 'store'
 import adminEpic from 'adminEpic'
+import PropTypes from 'prop-types'
 
 export default class AdminView extends React.Component {
 	onData(data){
@@ -32,5 +33,5 @@ export default class AdminView extends React.Component {
 }
 
 AdminView.propTypes ={
-	admin: React.PropTypes.object
+	admin: PropTypes.object
 }

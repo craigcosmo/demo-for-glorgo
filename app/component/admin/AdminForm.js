@@ -8,7 +8,7 @@ import {Link} from 'react-router'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import classnames from 'classnames'
 import {HotKeys} from 'react-hotkeys'
-
+import PropTypes from 'prop-types'
 
 export default class AdminForm extends React.Component{
 	constructor(props) {
@@ -148,7 +148,7 @@ export default class AdminForm extends React.Component{
 }
 
 AdminForm.propTypes = {
-	onData: React.PropTypes.func.isRequired
+	onData: PropTypes.func.isRequired
 }
 
 
